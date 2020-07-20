@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isnum.c                                         :+:      :+:    :+:   */
+/*   ft_perror.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 14:21:24 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/20 20:55:58 by aashara-         ###   ########.fr       */
+/*   Created: 2020/07/20 20:41:30 by aashara-          #+#    #+#             */
+/*   Updated: 2020/07/20 20:42:42 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isnum(const char *str)
+void	ft_perror(const char *msg, int is_exit)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (i == 0)
-		{
-			if (str[i] == '+' || str[i] == '-')
-			{
-				++i;
-				continue ;
-			}
-		}
-		if (!ft_isdigit(str[i]))
-			return (0);
-		++i;
-	}
-	return (1);
+	ft_putendl_fd(msg, STDERR_FILENO);
+	if (is_exit)
+		exit(EXIT_FAILURE);
 }

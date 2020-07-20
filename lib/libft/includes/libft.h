@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:42:59 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/20 14:26:15 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/07/20 20:42:57 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,5 @@ void			ft_swap(int *start, int *end);
 int				ft_min(int a, int b);
 int				ft_max(int a, int b);
 int				ft_isnum(const char *str);
+void			ft_perror(const char *msg, int is_exit);
 #endif
