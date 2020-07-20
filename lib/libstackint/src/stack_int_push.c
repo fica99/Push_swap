@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 20:01:44 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/19 20:28:56 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/07/20 12:20:39 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_bool	stack_int_push(t_stack_int *stack, int value)
 		stack->empty = False;
 	++stack->size;
 	if (!(new_elem = (t_list_int*)malloc(sizeof(t_list_int))))
-		return False;
+		return (False);
 	new_elem->value = value;
 	new_elem->next = stack->stack;
 	stack->stack = new_elem;
-	return True;
+	return (True);
 }

@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 19:28:42 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/19 20:23:49 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/07/20 12:20:55 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+
 typedef enum
 {
-						True = 1,
-						False = 0
-}						t_bool;
+	True = 1,
+	False = 0
+}	t_bool;
 
 typedef struct			s_list_int
 {
