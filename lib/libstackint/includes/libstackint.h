@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 19:28:42 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/20 12:20:55 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/07/20 16:25:04 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ typedef struct			s_stack_int
 	t_list_int			*stack;
 }						t_stack_int;
 
-t_bool					stack_int_push(t_stack_int *stack, int value);
+t_bool					stack_int_push(t_stack_int *stack, int value,
+													t_bool check_duplicate);
 t_bool					stack_int_pop(t_stack_int *stack);
 
 #endif

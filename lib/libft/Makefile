@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 13:57:06 by aashara-          #+#    #+#              #
-#    Updated: 2020/07/20 13:01:58 by aashara-         ###   ########.fr        #
+#    Updated: 2020/07/20 20:43:06 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,8 @@ SRC_FLS	=		ft_strlen.c\
 				ft_realloc.c\
 				ft_min.c\
 				ft_max.c\
+				ft_isnum.c\
+				ft_perror.c
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 SRCS	=		$(addprefix $(SRC_DIR)/, $(SRC_FLS))

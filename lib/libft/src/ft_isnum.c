@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   ft_isnum.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 13:44:14 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/20 20:52:45 by aashara-         ###   ########.fr       */
+/*   Created: 2020/07/20 14:21:24 by aashara-          #+#    #+#             */
+/*   Updated: 2020/07/20 20:55:58 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include "libstackint.h"
-# include "libft.h"
+int	ft_isnum(const char *str)
+{
+	size_t	i;
 
-# define ERROR_MESSAGE_SIZE 128
-#endif
+	i = 0;
+	while (str[i])
+	{
+		if (i == 0)
+		{
+			if (str[i] == '+' || str[i] == '-')
+			{
+				++i;
+				continue ;
+			}
+		}
+		if (!ft_isdigit(str[i]))
+			return (0);
+		++i;
+	}
+	return (1);
+}
