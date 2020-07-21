@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:40:37 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/21 14:25:55 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/07/21 17:49:25 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static void	print_nums(t_stack_int *stack_a, t_stack_int *stack_b)
 	t_list_int	*head_a;
 	t_list_int	*head_b;
 
-	big_size = ft_max(stack_a->size, stack_b->size);
+	big_size = ft_max(stack_a->size, stack_b->size) + 1;
 	head_a = stack_a->stack;
 	head_b = stack_b->stack;
-	while (big_size)
+	while (--big_size)
 	{
 		if (head_a)
 		{
@@ -38,7 +38,7 @@ static void	print_nums(t_stack_int *stack_a, t_stack_int *stack_b)
 			head_a = head_a->next;
 		}
 		else
-			printf("|            |");
+			printf("|             |");
 		if (head_b)
 		{
 			printf(" %-11d|\n", head_b->value);
@@ -46,13 +46,16 @@ static void	print_nums(t_stack_int *stack_a, t_stack_int *stack_b)
 		}
 		else
 			printf("            |\n");
-		--big_size;
 	}
 }
 
-void		print_stacks(t_stack_int *stack_a, t_stack_int *stack_b)
+void		print_stacks(t_stack_int *stack_a, t_stack_int *stack_b,
+														uint8_t flags)
 {
 	print_head();
+	if ((flags & C_FLAG))
+		ft_putstr("\033[38;5;196m");
 	print_nums(stack_a, stack_b);
+	ft_putstr("\033[0m");
 	ft_putstr("|_____________|____________|\n");
 }

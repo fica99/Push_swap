@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 14:21:24 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/20 20:55:58 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/07/21 17:06:02 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	ft_isnum(const char *str)
 			if (str[i] == '+' || str[i] == '-')
 			{
 				++i;
+				if (!str[i])
+					return (0);
 				continue ;
 			}
 		}
