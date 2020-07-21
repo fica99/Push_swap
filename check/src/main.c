@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:42:11 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/20 21:13:04 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/07/21 13:15:35 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,47 @@ static void	fill_stack(t_stack_int *stack, int argc, char **argv)
 	}
 }
 
+static void	check_command(char *buffer, t_stack_int *stack_a,
+												t_stack_int *stack_b)
+{
+	if (buffer[0] == 's')
+		check_s_commands(buffer, stack_a, stack_b);
+	else if (buffer[0] == 'p')
+		check_p_commands(buffer, stack_a, stack_b);
+	else if (buffer[0] == 'r')
+		check_r_commands(buffer, stack_a, stack_b);
+	else
+		ft_perror("Error: incorrect command", True);
+}
+
+static void	read_commands(t_stack_int *stack_a, t_stack_int *stack_b)
+{
+	char	*buffer;
+	int		res;
+
+	while ((res = get_next_line(0, &buffer)) > 0)
+	{
+		check_command(buffer, stack_a, stack_b);
+		ft_strdel(&buffer);
+	}
+	if (res == -1)
+		ft_perror("Error: read()", True);
+}
+
 int			main(int argc, char **argv)
 {
-	t_stack_int	stack;
+	t_stack_int	stack_a;
+	t_stack_int	stack_b;
 
 	(void)argv;
 	if (argc > 1)
 	{
-		ft_bzero((void*)&stack, sizeof(t_stack_int));
-		fill_stack(&stack, argc, argv);
+		ft_bzero((void*)&stack_a, sizeof(t_stack_int));
+		stack_a.empty = True;
+		ft_bzero((void*)&stack_b, sizeof(t_stack_int));
+		stack_b.empty = True;
+		fill_stack(&stack_a, argc, argv);
+		read_commands(&stack_a, &stack_b);
 	}
 	return (EXIT_SUCCESS);
 }
