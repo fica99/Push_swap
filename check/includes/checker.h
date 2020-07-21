@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:44:14 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/21 13:13:48 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/07/21 14:01:17 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 # include "libstackint.h"
 # include "libft.h"
 # include "get_next_line.h"
+# include "stdio.h"
 
 # define ERROR_MESSAGE_SIZE 128
+# define V_FLAG  1
 
 /*
 **	check_commands.c
@@ -29,4 +31,8 @@ void	check_p_commands(char *buffer, t_stack_int *stack_a,
 												t_stack_int *stack_b);
 void	check_r_commands(char *buffer, t_stack_int *stack_a,
 												t_stack_int *stack_b);
+/*
+**	print_stacks.c
+*/
+void	print_stacks(t_stack_int *stack_a, t_stack_int *stack_b);
 #endif
