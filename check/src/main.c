@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:42:11 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/21 17:25:03 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/07/21 17:36:11 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static void		read_commands(t_stack_int *stack_a, t_stack_int *stack_b,
 	int		res;
 
 	if (flags & V_FLAG)
-		print_stacks(stack_a, stack_b);
+		print_stacks(stack_a, stack_b, flags);
 	while ((res = get_next_line(0, &buffer)) > 0)
 	{
 		check_command(buffer, stack_a, stack_b);
 		if (flags & V_FLAG)
-			print_stacks(stack_a, stack_b);
+			print_stacks(stack_a, stack_b, flags);
 		ft_strdel(&buffer);
 	}
 	if (res == -1)
