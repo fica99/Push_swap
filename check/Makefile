@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/20 12:37:24 by aashara-          #+#    #+#              #
-#    Updated: 2020/07/21 16:04:25 by aashara-         ###   ########.fr        #
+#    Updated: 2020/08/24 16:12:37 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ OBJ_DIR	=		obj
 LIB_DIR =		../lib
 
 # ------------  LIBFT  ------------------------------------------------------- #
-LFT		=		libft.a
-LFT_DIR	=		$(LIB_DIR)/libft
+LFT		=		libftprintf.a
+LFT_DIR	=		$(LIB_DIR)/libftprintf
 LHS_DIR	=		$(LFT_DIR)/includes
 
 # ------------  LIBSTACKINT  ------------------------------------------------- #
@@ -44,7 +44,7 @@ DEPS	=		$(OBJS:.o=.d)
 CC		=		gcc
 RM		=		rm -rf
 CFLGS	=		-Wall -Werror -Wextra
-LFLGS	=		-L $(LSTACK_INT_DIR) -lstackint -L $(LFT_DIR) -lft
+LFLGS	=		-L $(LSTACK_INT_DIR) -lstackint -L $(LFT_DIR) -lftprintf
 IFLGS	=		-I $(HDR_DIR) -I $(LHS_DIR) -I $(LSTACK_INT_HS_DIR)
 DFLGS	=		-MMD -MP
 OFLGS	=		-O3

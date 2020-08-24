@@ -1,5 +1,6 @@
-./checker
-/.DS_Store
+pft_4000_test/
+main.c
+.vscode/
 # Prerequisites
 *.d
 
@@ -52,3 +53,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+*DS_Store
+.vscode/
+pft_2019/

@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isnum.c                                         :+:      :+:    :+:   */
+/*   pf_handle_func.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/20 14:21:24 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/21 17:06:02 by aashara-         ###   ########.fr       */
+/*   Created: 2020/08/17 14:30:05 by olegmulko         #+#    #+#             */
+/*   Updated: 2020/08/20 18:31:42 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isnum(const char *str)
+void	pf_align_to_width(t_printf *restrict pf, char c, t_len_opts *len_opts)
 {
 	size_t	i;
 
-	i = 0;
-	while (str[i])
+	i = len_opts->ac_len;
+	while (i < len_opts->w_len)
 	{
-		if (i == 0)
-		{
-			if (str[i] == '+' || str[i] == '-')
-			{
-				++i;
-				if (!str[i])
-					return (0);
-				continue ;
-			}
-		}
-		if (!ft_isdigit(str[i]))
-			return (0);
-		++i;
+		pf->buff[(pf->buff_len)++] = c;
+		i++;
 	}
-	return (1);
+}
+
+void	pf_align_to_accuracy(t_printf *restrict pf, char c,
+	t_len_opts *len_opts)
+{
+	size_t	i;
+
+	i = len_opts->num_len;
+	while (i < len_opts->ac_len)
+	{
+		pf->buff[(pf->buff_len)++] = c;
+		i++;
+	}
 }

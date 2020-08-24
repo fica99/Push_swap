@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_pathcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara <aashara@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 19:41:50 by aashara-          #+#    #+#             */
-/*   Updated: 2020/06/13 18:26:13 by aashara          ###   ########.fr       */
+/*   Created: 2019/12/23 17:43:02 by mmarti            #+#    #+#             */
+/*   Updated: 2020/02/05 14:43:14 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char const *s, int fd)
+int			ft_pathcmp(char *p1, char *p2)
 {
-	int	i;
-
-	if (s)
+	while (*p1 && *p1 == *p2)
 	{
-		i = ft_strlen(s);
-		i = write(fd, s, i);
+		p1++;
+		p2++;
+		if (*p1 == '/' || *p2 == '/')
+		{
+			while (*p1 == '/')
+				p1++;
+			while (*p2 == '/')
+				p2++;
+			continue ;
+		}
 	}
+	return (*p1 - *p2);
 }

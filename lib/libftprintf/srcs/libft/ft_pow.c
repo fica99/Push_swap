@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara <aashara@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 17:50:29 by aashara-          #+#    #+#             */
-/*   Updated: 2020/06/13 18:25:33 by aashara          ###   ########.fr       */
+/*   Created: 2020/08/01 14:38:06 by aashara-          #+#    #+#             */
+/*   Updated: 2020/08/01 15:53:26 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+double	ft_pow(double num, short pow)
 {
-	size_t	i;
+	unsigned short	i;
+	char			is_minus;
+	double			res;
 
-	if (s)
+	is_minus = 0;
+	if (pow < 0)
 	{
-		i = ft_strlen(s);
-		i = write(1, s, i);
+		is_minus = 1;
+		pow *= -1;
 	}
+	i = 0;
+	res = 1;
+	while (i < pow)
+	{
+		res *= num;
+		++i;
+	}
+	if (is_minus)
+		res = 1 / res;
+	return (res);
 }

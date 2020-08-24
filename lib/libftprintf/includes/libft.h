@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/21 15:42:59 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/20 20:42:57 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/08/24 16:22:28 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char			*ft_strncat(char *destination, const char *append, size_t n);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstadd(t_list **alst, t_list *n);
+void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				ft_isspace(int c);
@@ -91,6 +91,11 @@ int				ft_isupper(char c);
 void			ft_swap(int *start, int *end);
 int				ft_min(int a, int b);
 int				ft_max(int a, int b);
-int				ft_isnum(const char *str);
+int				ft_pathcmp(char *p1, char *p2);
+char			*ft_pathjoin(char *s1, char *s2);
+double			ft_pow(double num, short pow);
+int				ft_abs(int num);
 void			ft_perror(const char *msg, int is_exit);
+int				ft_isnum(const char *str);
+
 #endif
