@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:40:37 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/21 17:49:25 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/08/26 17:03:03 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ static void	print_nums(t_stack_int *stack_a, t_stack_int *stack_b)
 	{
 		if (head_a)
 		{
-			printf("|  %-11d|", head_a->value);
+			ft_printf("|  %-11d|", head_a->value);
 			head_a = head_a->next;
 		}
 		else
-			printf("|             |");
+			ft_printf("|             |");
 		if (head_b)
 		{
-			printf(" %-11d|\n", head_b->value);
+			ft_printf(" %-11d|\n", head_b->value);
 			head_b = head_b->next;
 		}
 		else
-			printf("            |\n");
+			ft_printf("            |\n");
 	}
 }
 
@@ -53,7 +53,7 @@ void		print_stacks(t_stack_int *stack_a, t_stack_int *stack_b,
 														uint8_t flags)
 {
 	print_head();
-	if ((flags & C_FLAG))
+	if (flags & C_FLAG)
 		ft_putstr("\033[38;5;196m");
 	print_nums(stack_a, stack_b);
 	ft_putstr("\033[0m");

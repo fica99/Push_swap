@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:42:11 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/21 17:36:11 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/08/26 17:10:31 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ static void		is_sort(t_stack_int *stack)
 	t_list_int	*head;
 	t_list_int	*checker;
 
+	if (stack->empty == True)
+		return ;
 	head = stack->stack;
 	while (head->next)
 	{

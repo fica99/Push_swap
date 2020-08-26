@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:44:14 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/21 17:35:50 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/08/26 17:08:44 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "libstackint.h"
 # include "libft.h"
 # include "get_next_line.h"
-# include "stdio.h"
+# include "ft_printf.h"
 
 # define ERROR_MESSAGE_SIZE 128
 # define V_FLAG 1
