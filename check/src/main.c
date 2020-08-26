@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:42:11 by aashara-          #+#    #+#             */
-/*   Updated: 2020/08/26 17:49:30 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/08/26 18:55:43 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int				main(int argc, char **argv)
 		stack_a.empty = True;
 		ft_bzero((void*)&stack_b, sizeof(t_stack_int));
 		stack_b.empty = True;
-		flags = fill_stack(&stack_a, argc, argv);
+		flags = fill_stack(&stack_a, argc, argv, True);
 		if (stack_a.empty)
 			return (EXIT_FAILURE);
 		read_commands(&stack_a, &stack_b, flags);
