@@ -6,9 +6,11 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/20 12:29:11 by aashara-          #+#    #+#              #
-#    Updated: 2020/07/20 13:45:10 by aashara-         ###   ########.fr        #
+#    Updated: 2020/08/26 17:40:23 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+checker := check
 
 checker := check
 

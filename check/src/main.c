@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:42:11 by aashara-          #+#    #+#             */
-/*   Updated: 2020/08/26 17:10:31 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/08/26 17:49:30 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ static void		read_commands(t_stack_int *stack_a, t_stack_int *stack_b,
 		ft_perror("Error: read()", True);
 }
 
-static void		is_sort(t_stack_int *stack)
+static t_bool	is_sort(t_stack_int *stack)
 {
 	t_list_int	*head;
 	t_list_int	*checker;
 
-	if (stack->empty == True)
-		return ;
+	if (stack->empty)
+		return (True);
 	head = stack->stack;
 	while (head->next)
 	{
@@ -58,12 +58,12 @@ static void		is_sort(t_stack_int *stack)
 		while (checker)
 		{
 			if (head->value >= checker->value)
-				ft_perror("KO", True);
+				return (False);
 			checker = checker->next;
 		}
 		head = head->next;
 	}
-	ft_putendl("OK");
+	return (True);
 }
 
 int				main(int argc, char **argv)
@@ -80,10 +80,15 @@ int				main(int argc, char **argv)
 		ft_bzero((void*)&stack_b, sizeof(t_stack_int));
 		stack_b.empty = True;
 		flags = fill_stack(&stack_a, argc, argv);
+		if (stack_a.empty)
+			return (EXIT_FAILURE);
 		read_commands(&stack_a, &stack_b, flags);
-		is_sort(&stack_a);
+		(is_sort(&stack_a) == True && stack_b.empty == True)
+			? ft_putendl("OK") : ft_putendl("KO");
 		while (stack_a.empty == False)
 			stack_int_pop(&stack_a);
+		while (stack_b.empty == False)
+			stack_int_pop(&stack_b);
 	}
 	return (EXIT_SUCCESS);
 }
