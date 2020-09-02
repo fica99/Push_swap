@@ -75,15 +75,10 @@ static void	ps_sort_2(t_stack_int *stack_a)
 	}
 }
 
-static void ps_sort_4(t_stack_int *stack_a, t_stack_int *stack_b)
-{
-	ps_sort_3(stack_a);
-	stack_int_push_to_other(stack_b, stack_a);
-	ft_putendl("pb");
-	ps_sort_3(stack_a);
-	stack_int_push_to_other(stack_a, stack_b);
-	ft_putendl("pa");
-}
+// static void ps_sort_4(t_stack_int *stack_a, t_stack_int *stack_b)
+// {
+
+// }
 
 void		ps_sort_first_5(t_stack_int *stack_a, t_stack_int *stack_b)
 {
@@ -91,10 +86,14 @@ void		ps_sort_first_5(t_stack_int *stack_a, t_stack_int *stack_b)
 		ps_sort_2(stack_a);
 	else if (stack_a->size == 3)
 		ps_sort_3(stack_a);
-	else if (stack_a->size == 4)
-		ps_sort_4(stack_a, stack_b);
-	else
-	{
-		
-	}
+	t_stack_int *stack;
+	stack = stack_a;
+	stack_a = stack_b;
+	stack_a = stack;
+	// else if (stack_a->size == 4)
+	// 	ps_sort_4(stack_a, stack_b);
+	// else
+	// {
+
+	// }
 }

@@ -63,6 +63,24 @@ static int	parse_flags(int argc, char **argv, uint8_t *flags)
 	return (i - 1);
 }
 
+static void	fill_stack_arg(t_stack_int *stack, char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (stack_int_push(stack, ft_atoi(str + i), True) == False)
+			print_error(DUP_ERR, str);
+		while (ft_isspace(str[i]))
+			++i;
+		if (str[i] == '+' || str[i] == '-')
+			++i;
+		while (ft_isdigit(str[i]) || ft_isspace(str[i]))
+			++i;
+	}
+}
+
 uint8_t		fill_stack(t_stack_int *stack, int argc, char **argv, t_bool is_flags)
 {
 	int		i;
@@ -73,10 +91,7 @@ uint8_t		fill_stack(t_stack_int *stack, int argc, char **argv, t_bool is_flags)
 	while (--argc > i)
 	{
 		if (ft_isnum(argv[argc]))
-		{
-			if (stack_int_push(stack, ft_atoi(argv[argc]), True) == False)
-				print_error(DUP_ERR, argv[argc]);
-		}
+			fill_stack_arg(stack, argv[argc]);
 		else
 			print_error(INVALID_ERR, argv[argc]);
 	}
