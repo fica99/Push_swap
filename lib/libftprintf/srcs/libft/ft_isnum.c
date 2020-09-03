@@ -14,26 +14,27 @@
 
 int	ft_isnum(const char *str)
 {
-	size_t	i;
+	int		i;
 	char	is_dig;
 
-	i = 0;
+	i = -1;
 	is_dig = 0;
-	while (str[i])
+	while (str[++i])
 	{
 		if (i == 0 && (str[i] == '+' || str[i] == '-'))
 			if (!ft_isdigit(str[++i]))
 				return (0);
-		if (!ft_isdigit(str[i]))
+		if (ft_isdigit(str[i]))
+			is_dig = 1;
+		else if (ft_isspace(str[i]))
 		{
 			while (ft_isspace(str[i]))
-			{
-				str = str + i + 1;
-				i = 0;
-			}
+				++i;
+			str = str + i;
+			i = -1;
 		}
-		is_dig = 1;
-		++i;
+		else
+			return (0);
 	}
-	return (1);
+	return (is_dig);
 }
