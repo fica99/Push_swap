@@ -3,26 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ps_sort_other.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara <aashara@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/05 01:35:04 by aashara           #+#    #+#             */
-/*   Updated: 2020/09/05 03:16:18 by aashara          ###   ########.fr       */
+/*   Updated: 2020/09/05 18:48:28 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_bool	ps_equal(int first, int second)
+t_bool			ps_equal(int first, int second)
 {
 	return (t_bool)(first == second);
 }
 
-static t_bool	ps_greater(int first, int second)
-{
-	return (t_bool)(first > second);
-}
-
-static void		ps_rotate(t_stack_int *stack, size_t pos)
+void			ps_rotate(t_stack_int *stack, size_t pos)
 {
 	t_bool	is_inverse;
 
@@ -47,7 +42,24 @@ static void		ps_rotate(t_stack_int *stack, size_t pos)
 	}
 }
 
-static void		ps_insert(t_stack_int *stack, int value, int *min, int *max)
+static size_t	ps_find_middle_pos(t_stack_int *stack, int value)
+{
+	size_t		pos;
+	t_list_int	*tmp;
+
+	pos = 1;
+	tmp = stack->stack;
+	while (tmp->next)
+	{
+		if (tmp->value < value && tmp->next->value > value)
+			break ;
+		tmp = tmp->next;
+		++pos;
+	}
+	return (pos);
+}
+
+void			ps_insert(t_stack_int *stack, int value, int *min, int *max)
 {
 	size_t	pos;
 
@@ -62,31 +74,6 @@ static void		ps_insert(t_stack_int *stack, int value, int *min, int *max)
 		*max = value;
 	}
 	else
-		pos = stack_int_find(stack, value, &ps_greater);
+		pos = ps_find_middle_pos(stack, value);
 	ps_rotate(stack, pos);
-
-}
-
-void			ps_sort_other(t_stack_int *stack_a, t_stack_int *stack_b)
-{
-	int		min;
-	int		max;
-	size_t	pos;
-
-	while (stack_a->size > 3)
-	{
-		stack_int_push_to_other(stack_b, stack_a);
-		ft_putendl("pb");
-	}
-	ps_sort_3(stack_a);
-	min = stack_a->stack->value;
-	max = stack_a->stack->next->next->value;
-	while (stack_b->empty == False)
-	{
-		ps_insert(stack_a, stack_b->stack->value, &min, &max);
-		stack_int_push_to_other(stack_a, stack_b);
-		ft_putendl("pa");
-	}
-	pos = stack_int_find(stack_a, min, &ps_equal);
-	ps_rotate(stack_a, pos);
 }

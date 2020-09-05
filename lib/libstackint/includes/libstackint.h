@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libstackint.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara <aashara@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 19:28:42 by aashara-          #+#    #+#             */
-/*   Updated: 2020/09/05 02:13:30 by aashara          ###   ########.fr       */
+/*   Updated: 2020/09/05 18:38:54 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ t_bool					stack_int_rotate(t_stack_int *stack);
 t_bool					stack_int_reverse_rotate(t_stack_int *stack);
 t_bool					stack_int_is_sort(t_stack_int *stack);
 size_t					stack_int_find(t_stack_int *stack, int value,\
-												 t_bool (*f)(int, int));
+												t_bool (*f)(int, int));
 #endif

@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:03:18 by aashara-          #+#    #+#             */
-/*   Updated: 2020/08/26 20:06:51 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/09/05 18:38:13 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ static void	fill_stack_arg(t_stack_int *stack, char *str)
 	}
 }
 
-uint8_t		fill_stack(t_stack_int *stack, int argc, char **argv, t_bool is_flags)
+uint8_t		fill_stack(t_stack_int *stack, int argc, char **argv,
+													t_bool is_flags)
 {
 	int		i;
 	uint8_t	flags;

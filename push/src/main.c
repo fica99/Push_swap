@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara <aashara@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 18:10:25 by aashara-          #+#    #+#             */
-/*   Updated: 2020/09/05 01:11:23 by aashara          ###   ########.fr       */
+/*   Updated: 2020/09/05 18:39:45 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ int			main(int argc, char **argv)
 	}
 	return (EXIT_SUCCESS);
 }
-

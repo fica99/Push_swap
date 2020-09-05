@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ps_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara <aashara@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 20:10:03 by aashara-          #+#    #+#             */
-/*   Updated: 2020/09/05 02:47:24 by aashara          ###   ########.fr       */
+/*   Updated: 2020/09/05 18:40:14 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	ps_sort_3_greater(t_stack_int *stack_a)
 	}
 }
 
-void		ps_sort_3(t_stack_int *stack_a)
+static void	ps_sort_3(t_stack_int *stack_a)
 {
 	t_list_int	*head;
 
@@ -73,6 +73,30 @@ static void	ps_sort_2(t_stack_int *stack_a)
 		stack_int_swap_first_elems(stack_a);
 		ft_putendl("sa");
 	}
+}
+
+static void	ps_sort_other(t_stack_int *stack_a, t_stack_int *stack_b)
+{
+	int		min;
+	int		max;
+	size_t	pos;
+
+	while (stack_a->size > 3)
+	{
+		stack_int_push_to_other(stack_b, stack_a);
+		ft_putendl("pb");
+	}
+	ps_sort_3(stack_a);
+	min = stack_a->stack->value;
+	max = stack_a->stack->next->next->value;
+	while (stack_b->empty == False)
+	{
+		ps_insert(stack_a, stack_b->stack->value, &min, &max);
+		stack_int_push_to_other(stack_a, stack_b);
+		ft_putendl("pa");
+	}
+	pos = stack_int_find(stack_a, min, &ps_equal);
+	ps_rotate(stack_a, pos);
 }
 
 void		ps_sort(t_stack_int *stack_a, t_stack_int *stack_b)

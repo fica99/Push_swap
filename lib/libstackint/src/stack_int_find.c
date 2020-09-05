@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_int_find.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara <aashara@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/05 02:07:33 by aashara           #+#    #+#             */
-/*   Updated: 2020/09/05 02:15:53 by aashara          ###   ########.fr       */
+/*   Updated: 2020/09/05 18:39:00 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	stack_int_find(t_stack_int *stack, int value, t_bool (*f)(int, int))
 	while (tmp)
 	{
 		if (f(tmp->value, value))
-			break;
+			break ;
 		tmp = tmp->next;
 		++i;
 	}
