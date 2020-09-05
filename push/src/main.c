@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aashara <aashara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 18:10:25 by aashara-          #+#    #+#             */
-/*   Updated: 2020/08/26 22:31:49 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/09/05 01:11:23 by aashara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int			main(int argc, char **argv)
 		ft_bzero((void*)&stack_b, sizeof(t_stack_int));
 		stack_b.empty = True;
 		fill_stack(&stack_a, argc, argv, False);
-		if (stack_a.size > 1 && stack_a.size <= 5)
-			ps_sort_first_5(&stack_a, &stack_b);
+		if (stack_a.size > 1 && stack_int_is_sort(&stack_a) == False)
+			ps_sort(&stack_a, &stack_b);
 		while (stack_a.empty == False)
 			stack_int_pop(&stack_a);
 		while (stack_b.empty == False)

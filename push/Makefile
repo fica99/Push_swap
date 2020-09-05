@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
+#    By: aashara <aashara@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/20 12:37:24 by aashara-          #+#    #+#              #
-#    Updated: 2020/08/26 22:32:13 by aashara-         ###   ########.fr        #
+#    Updated: 2020/09/05 02:45:21 by aashara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ LSTACK_INT_HS_DIR	=	$(LSTACK_INT_DIR)/includes
 
 # ------------  SOURCE FILES  ------------------------------------------------ #
 SRC_FLS	=		main.c\
-				ps_sort_first_5.c
+				ps_sort.c\
+				ps_sort_other.c
 
 
 FILL_STACK_SRC=		../check/src/fill_stack.c

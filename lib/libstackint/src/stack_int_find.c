@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_int_find.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara <aashara@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/26 18:09:41 by aashara-          #+#    #+#             */
-/*   Updated: 2020/09/05 02:47:33 by aashara          ###   ########.fr       */
+/*   Created: 2020/09/05 02:07:33 by aashara           #+#    #+#             */
+/*   Updated: 2020/09/05 02:15:53 by aashara          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-#include <stdlib.h>
-#include "checker.h"
 #include "libstackint.h"
 
+size_t	stack_int_find(t_stack_int *stack, int value, t_bool (*f)(int, int))
+{
+	size_t		i;
+	t_list_int	*tmp;
 
-/*
-**			ps_sort.c
-*/
-void		ps_sort_3(t_stack_int *stack_a);
-void		ps_sort(t_stack_int *stack_a, t_stack_int *stack_b);
-/*
-**			ps_sort_other.c
-*/
-void		ps_sort_other(t_stack_int *stack_a, t_stack_int *stack_b);
-#endif
+	i = 0;
+	if (stack->empty)
+		return (0);
+	tmp = stack->stack;
+	while (tmp)
+	{
+		if (f(tmp->value, value))
+			break;
+		tmp = tmp->next;
+		++i;
+	}
+	return (i);
+}
