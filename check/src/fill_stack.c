@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:03:18 by aashara-          #+#    #+#             */
-/*   Updated: 2020/07/21 17:21:43 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/09/05 18:38:13 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,40 @@ static int	parse_flags(int argc, char **argv, uint8_t *flags)
 	return (i - 1);
 }
 
-uint8_t		fill_stack(t_stack_int *stack, int argc, char **argv)
+static void	fill_stack_arg(t_stack_int *stack, char *str)
+{
+	int	i;
+
+	i = ft_strlen(str);
+	while (i--)
+	{
+		while (ft_isspace(str[i]))
+		{
+			if (!i)
+				return ;
+			--i;
+		}
+		while (i && ft_isdigit(str[i]))
+			--i;
+		if (stack_int_push(stack, ft_atoi(str + i), True) == False)
+			print_error(DUP_ERR, str);
+		if (i && (str[i] == '+' || str[i] == '-'))
+			--i;
+	}
+}
+
+uint8_t		fill_stack(t_stack_int *stack, int argc, char **argv,
+													t_bool is_flags)
 {
 	int		i;
 	uint8_t	flags;
 
 	flags = 0;
-	i = parse_flags(argc, argv, &flags);
+	i = ((is_flags == TRUE) ? parse_flags(argc, argv, &flags) : 0);
 	while (--argc > i)
 	{
 		if (ft_isnum(argv[argc]))
-		{
-			if (stack_int_push(stack, ft_atoi(argv[argc]), True) == False)
-				print_error(DUP_ERR, argv[argc]);
-		}
+			fill_stack_arg(stack, argv[argc]);
 		else
 			print_error(INVALID_ERR, argv[argc]);
 	}

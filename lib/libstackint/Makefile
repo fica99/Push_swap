@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
+#    By: aashara <aashara@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/14 12:47:29 by aashara           #+#    #+#              #
-#    Updated: 2020/07/21 11:49:03 by aashara-         ###   ########.fr        #
+#    Updated: 2020/09/05 02:13:41 by aashara          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRC_FLS	=		stack_int_pop.c\
 				stack_int_swap_first_elems.c\
 				stack_int_push_to_other.c\
 				stack_int_rotate.c\
-				stack_int_reverse_rotate.c
+				stack_int_reverse_rotate.c\
+				stack_int_is_sort.c\
+				stack_int_find.c
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 SRCS	=		$(addprefix $(SRC_DIR)/, $(SRC_FLS))

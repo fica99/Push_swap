@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isnum.c                                         :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/24 16:21:53 by aashara-          #+#    #+#             */
-/*   Updated: 2020/08/24 16:22:05 by aashara-         ###   ########.fr       */
+/*   Created: 2020/08/26 18:09:41 by aashara-          #+#    #+#             */
+/*   Updated: 2020/09/05 18:39:39 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	ft_isnum(const char *str)
-{
-	int		i;
-	char	is_dig;
+# include <stdlib.h>
+# include "checker.h"
+# include "libstackint.h"
 
-	i = -1;
-	is_dig = 0;
-	while (str[++i])
-	{
-		if (i == 0 && (str[i] == '+' || str[i] == '-'))
-			if (!ft_isdigit(str[++i]))
-				return (0);
-		if (ft_isdigit(str[i]))
-			is_dig = 1;
-		else if (ft_isspace(str[i]))
-		{
-			while (ft_isspace(str[i]))
-				++i;
-			str = str + i;
-			i = -1;
-		}
-		else
-			return (0);
-	}
-	return (is_dig);
-}
+/*
+**			ps_sort.c
+*/
+void		ps_sort(t_stack_int *stack_a, t_stack_int *stack_b);
+/*
+**			ps_sort_other.c
+*/
+t_bool		ps_equal(int first, int second);
+void		ps_rotate(t_stack_int *stack, size_t pos);
+void		ps_insert(t_stack_int *stack, int value, int *min, int *max);
+#endif

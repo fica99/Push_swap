@@ -6,12 +6,12 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/20 12:37:24 by aashara-          #+#    #+#              #
-#    Updated: 2020/09/05 16:09:11 by aashara-         ###   ########.fr        #
+#    Updated: 2020/09/05 16:09:45 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ------------  PROJECT  ----------------------------------------------------- #
-NAME	=		../checker
+NAME	=		../push_swap
 
 # ------------  DIRECTORIES  ------------------------------------------------- #
 SRC_DIR	=		src
@@ -31,9 +31,13 @@ LSTACK_INT_HS_DIR	=	$(LSTACK_INT_DIR)/includes
 
 # ------------  SOURCE FILES  ------------------------------------------------ #
 SRC_FLS	=		main.c\
-				check_commands.c\
-				print_stacks.c\
-				fill_stack.c
+				ps_sort.c\
+				ps_sort_other.c
+
+
+FILL_STACK_SRC=		../check/src/fill_stack.c
+FILL_STACK_OBJ=		obj/fill_stack.o
+FILL_STACK_INC=		../check/includes
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 SRCS	=		$(addprefix $(SRC_DIR)/, $(SRC_FLS))
@@ -45,7 +49,7 @@ CC		=		gcc
 RM		=		rm -rf
 CFLGS	=		-Wall -Werror -Wextra
 LFLGS	=		-L $(LSTACK_INT_DIR) -lstackint -L $(LFT_DIR) -lftprintf -lm
-IFLGS	=		-I $(HDR_DIR) -I $(LHS_DIR) -I $(LSTACK_INT_HS_DIR)
+IFLGS	=		-I $(HDR_DIR) -I $(FILL_STACK_INC) -I $(LHS_DIR) -I $(LSTACK_INT_HS_DIR)
 DFLGS	=		-MMD -MP
 OFLGS	=		-O3
 
@@ -64,11 +68,15 @@ $(LSTACK_INT_DIR)/$(LSTACK_INT):
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLGS) $(DFLGS) $(OFLGS) -c -o $@ $< $(IFLGS)
 
+-include $(DEPS)
+$(FILL_STACK_OBJ): $(FILL_STACK_SRC) | $(OBJ_DIR)
+	$(CC) $(CFLGS) $(DFLGS) $(OFLGS) -c -o $@ $< $(IFLGS)
+
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(NAME): $(LFT_DIR)/$(LFT) $(LSTACK_INT_DIR)/$(LSTACK_INT) $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) $(LFLGS)
+$(NAME): $(LFT_DIR)/$(LFT) $(LSTACK_INT_DIR)/$(LSTACK_INT) $(OBJS) $(FILL_STACK_OBJ)
+	$(CC) -o $(NAME) $(OBJS) $(FILL_STACK_OBJ) $(LFLGS)
 
 $(NAME): $(OBJS)
 

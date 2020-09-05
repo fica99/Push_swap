@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isnum.c                                         :+:      :+:    :+:   */
+/*   stack_int_find.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/24 16:21:53 by aashara-          #+#    #+#             */
-/*   Updated: 2020/08/24 16:22:05 by aashara-         ###   ########.fr       */
+/*   Created: 2020/09/05 02:07:33 by aashara           #+#    #+#             */
+/*   Updated: 2020/09/05 18:39:00 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libstackint.h"
 
-int	ft_isnum(const char *str)
+size_t	stack_int_find(t_stack_int *stack, int value, t_bool (*f)(int, int))
 {
-	int		i;
-	char	is_dig;
+	size_t		i;
+	t_list_int	*tmp;
 
-	i = -1;
-	is_dig = 0;
-	while (str[++i])
+	i = 0;
+	if (stack->empty)
+		return (0);
+	tmp = stack->stack;
+	while (tmp)
 	{
-		if (i == 0 && (str[i] == '+' || str[i] == '-'))
-			if (!ft_isdigit(str[++i]))
-				return (0);
-		if (ft_isdigit(str[i]))
-			is_dig = 1;
-		else if (ft_isspace(str[i]))
-		{
-			while (ft_isspace(str[i]))
-				++i;
-			str = str + i;
-			i = -1;
-		}
-		else
-			return (0);
+		if (f(tmp->value, value))
+			break ;
+		tmp = tmp->next;
+		++i;
 	}
-	return (is_dig);
+	return (i);
 }

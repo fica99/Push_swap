@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:44:14 by aashara-          #+#    #+#             */
-/*   Updated: 2020/08/26 17:08:44 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/08/26 18:53:09 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	print_stacks(t_stack_int *stack_a, t_stack_int *stack_b,
 /*
 **	fill_stack.c
 */
-uint8_t	fill_stack(t_stack_int *stack, int argc, char **argv);
+uint8_t	fill_stack(t_stack_int *stack, int argc, char **argv, t_bool is_flags);
+
 #endif
