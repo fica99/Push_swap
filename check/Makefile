@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/20 12:37:24 by aashara-          #+#    #+#              #
-#    Updated: 2020/09/05 16:09:11 by aashara-         ###   ########.fr        #
+#    Updated: 2020/09/06 11:06:33 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ LSTACK_INT_HS_DIR	=	$(LSTACK_INT_DIR)/includes
 SRC_FLS	=		main.c\
 				check_commands.c\
 				print_stacks.c\
-				fill_stack.c
+				fill_stack.c\
+				ps_atoi.c
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 SRCS	=		$(addprefix $(SRC_DIR)/, $(SRC_FLS))

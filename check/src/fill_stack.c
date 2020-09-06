@@ -6,13 +6,13 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:03:18 by aashara-          #+#    #+#             */
-/*   Updated: 2020/09/06 10:22:19 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/09/06 11:21:59 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static void	print_error(char *msg, char *argument)
+void		print_error(char *msg, char *argument)
 {
 	char	buff[ERROR_MESSAGE_SIZE];
 
@@ -64,6 +64,7 @@ static int	parse_flags(int argc, char **argv, uint8_t *flags)
 static void	fill_stack_arg(t_stack_int *stack, char *str)
 {
 	int	i;
+	int	num;
 
 	i = ft_strlen(str);
 	while (i--)
@@ -76,7 +77,8 @@ static void	fill_stack_arg(t_stack_int *stack, char *str)
 		}
 		while (i && ft_isdigit(str[i]))
 			--i;
-		if (stack_int_push(stack, ft_atoi(str + i), True) == False)
+		num = ps_atoi(str + i);
+		if (stack_int_push(stack, num, True) == False)
 			print_error(DUP_ERR, str);
 		if (i && (str[i] == '+' || str[i] == '-'))
 			--i;

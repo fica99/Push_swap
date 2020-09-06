@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/20 12:37:24 by aashara-          #+#    #+#              #
-#    Updated: 2020/09/05 16:09:45 by aashara-         ###   ########.fr        #
+#    Updated: 2020/09/06 11:26:34 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,11 @@ SRC_FLS	=		main.c\
 FILL_STACK_SRC=		../check/src/fill_stack.c
 FILL_STACK_OBJ=		obj/fill_stack.o
 FILL_STACK_INC=		../check/includes
+
+PS_ATOI_SRC=		../check/src/ps_atoi.c
+PS_ATOI_OBJ=		obj/ps_atoi.o
+PS_ATOI_INC=		../check/includes
+
 
 # ------------  FILEPATHS  --------------------------------------------------- #
 SRCS	=		$(addprefix $(SRC_DIR)/, $(SRC_FLS))
@@ -72,11 +77,15 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 $(FILL_STACK_OBJ): $(FILL_STACK_SRC) | $(OBJ_DIR)
 	$(CC) $(CFLGS) $(DFLGS) $(OFLGS) -c -o $@ $< $(IFLGS)
 
+-include $(DEPS)
+$(PS_ATOI_OBJ): $(PS_ATOI_SRC) | $(OBJ_DIR)
+	$(CC) $(CFLGS) $(DFLGS) $(OFLGS) -c -o $@ $< $(IFLGS)
+
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(NAME): $(LFT_DIR)/$(LFT) $(LSTACK_INT_DIR)/$(LSTACK_INT) $(OBJS) $(FILL_STACK_OBJ)
-	$(CC) -o $(NAME) $(OBJS) $(FILL_STACK_OBJ) $(LFLGS)
+$(NAME): $(LFT_DIR)/$(LFT) $(LSTACK_INT_DIR)/$(LSTACK_INT) $(OBJS) $(FILL_STACK_OBJ) $(PS_ATOI_OBJ)
+	$(CC) -o $(NAME) $(OBJS) $(FILL_STACK_OBJ) $(PS_ATOI_OBJ) $(LFLGS)
 
 $(NAME): $(OBJS)
 
