@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aashara <aashara@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/20 13:42:11 by aashara-          #+#    #+#             */
-/*   Updated: 2020/09/05 01:08:54 by aashara          ###   ########.fr       */
+/*   Updated: 2020/09/06 10:21:44 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ static void		read_commands(t_stack_int *stack_a, t_stack_int *stack_b,
 	int		res;
 
 	if (flags & V_FLAG)
-		print_stacks(stack_a, stack_b, flags);
+		print_stacks(stack_a, stack_b);
 	while ((res = get_next_line(0, &buffer)) > 0)
 	{
 		check_command(buffer, stack_a, stack_b);
 		if (flags & V_FLAG)
-			print_stacks(stack_a, stack_b, flags);
+			print_stacks(stack_a, stack_b);
 		ft_strdel(&buffer);
 	}
 	if (res == -1)

@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 13:40:37 by aashara-          #+#    #+#             */
-/*   Updated: 2020/08/26 17:03:03 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/09/06 10:37:35 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ static void	print_nums(t_stack_int *stack_a, t_stack_int *stack_b)
 	{
 		if (head_a)
 		{
-			ft_printf("|  %-11d|", head_a->value);
+			ft_printf("|  {cyan}%-11d{eoc}|", head_a->value);
 			head_a = head_a->next;
 		}
 		else
 			ft_printf("|             |");
 		if (head_b)
 		{
-			ft_printf(" %-11d|\n", head_b->value);
+			ft_printf(" {cyan}%-11d{eoc}|\n", head_b->value);
 			head_b = head_b->next;
 		}
 		else
@@ -49,13 +49,9 @@ static void	print_nums(t_stack_int *stack_a, t_stack_int *stack_b)
 	}
 }
 
-void		print_stacks(t_stack_int *stack_a, t_stack_int *stack_b,
-														uint8_t flags)
+void		print_stacks(t_stack_int *stack_a, t_stack_int *stack_b)
 {
 	print_head();
-	if (flags & C_FLAG)
-		ft_putstr("\033[38;5;196m");
 	print_nums(stack_a, stack_b);
-	ft_putstr("\033[0m");
 	ft_putstr("|_____________|____________|\n");
 }

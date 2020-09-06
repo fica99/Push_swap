@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:03:18 by aashara-          #+#    #+#             */
-/*   Updated: 2020/09/05 18:38:13 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/09/06 10:22:19 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ static int	check_flags(char *str)
 	{
 		if (str[j] == 'v')
 			flags |= V_FLAG;
-		else if (str[j] == 'c')
-			flags |= C_FLAG;
 		else
 			print_error(INVALID_ERR, str);
 	}
