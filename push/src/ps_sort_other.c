@@ -19,7 +19,7 @@ t_bool			ps_equal(int first, int second)
 
 void			ps_rotate(t_stack_int *stack, size_t pos)
 {
-	t_bool	is_inverse;
+	t_bool		is_inverse;
 
 	is_inverse = False;
 	if (pos > (stack->size / 2))
@@ -59,21 +59,57 @@ static size_t	ps_find_middle_pos(t_stack_int *stack, int value)
 	return (pos);
 }
 
-void			ps_insert(t_stack_int *stack, int value, int *min, int *max)
+static size_t	ps_find_min_rotation(t_stack_int *stack_a,
+								t_stack_int *stack_b, int min, int max)
 {
-	size_t	pos;
+	size_t		pos[stack_b->size];
+	t_list_int	*tmp;
+	size_t		i;
+	size_t		min_i;
 
+	tmp = stack_b->stack;
+	i = 0;
+	min_i = 0;
+	while (tmp)
+	{
+		if (tmp->value < min)
+			pos[i] = stack_int_find(stack_a, min, &ps_equal);
+		else if (tmp->value > max)
+			pos[i] = stack_int_find(stack_a, max, &ps_equal) + 1;
+		else
+			pos[i] = ps_find_middle_pos(stack_a, tmp->value);
+		if (pos[i] > (stack_a->size / 2))
+			pos[i] = stack_a->size - pos[i];
+		pos[i] += (i > stack_b->size / 2) ? (stack_b->size - i) : i;
+		if (pos[i] < pos[min_i])
+			min_i = i;
+		tmp = tmp->next;
+		++i;
+	}
+	return (min_i);
+}
+
+void			ps_insert(t_stack_int *stack_a, t_stack_int *stack_b, int *min,
+																	int *max)
+{
+	size_t		min_i;
+	int			value;
+	size_t		pos;
+
+	min_i = ps_find_min_rotation(stack_a, stack_b, *min, *max);
+	ps_rotate(stack_b, min_i);
+	value = stack_b->stack->value;
 	if (value < *min)
 	{
-		pos = stack_int_find(stack, *min, &ps_equal);
+		pos = stack_int_find(stack_a, *min, &ps_equal);
 		*min = value;
 	}
 	else if (value > *max)
 	{
-		pos = stack_int_find(stack, *max, &ps_equal) + 1;
+		pos = stack_int_find(stack_a, *max, &ps_equal) + 1;
 		*max = value;
 	}
 	else
-		pos = ps_find_middle_pos(stack, value);
-	ps_rotate(stack, pos);
+		pos = ps_find_middle_pos(stack_a, value);
+	ps_rotate(stack_a, pos);
 }

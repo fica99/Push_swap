@@ -91,7 +91,7 @@ static void	ps_sort_other(t_stack_int *stack_a, t_stack_int *stack_b)
 	max = stack_a->stack->next->next->value;
 	while (stack_b->empty == False)
 	{
-		ps_insert(stack_a, stack_b->stack->value, &min, &max);
+		ps_insert(stack_a, stack_b, &min, &max);
 		stack_int_push_to_other(stack_a, stack_b);
 		ft_putendl("pa");
 	}

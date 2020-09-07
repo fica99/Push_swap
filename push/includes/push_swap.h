@@ -26,5 +26,6 @@ void		ps_sort(t_stack_int *stack_a, t_stack_int *stack_b);
 */
 t_bool		ps_equal(int first, int second);
 void		ps_rotate(t_stack_int *stack, size_t pos);
-void		ps_insert(t_stack_int *stack, int value, int *min, int *max);
+void		ps_insert(t_stack_int *stack_a, t_stack_int *stack_b, int *min,
+																	int *max);
 #endif
