@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/20 12:37:24 by aashara-          #+#    #+#              #
-#    Updated: 2020/09/06 11:26:34 by aashara-         ###   ########.fr        #
+#    Updated: 2020/09/07 15:56:08 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ LSTACK_INT_HS_DIR	=	$(LSTACK_INT_DIR)/includes
 # ------------  SOURCE FILES  ------------------------------------------------ #
 SRC_FLS	=		main.c\
 				ps_sort.c\
-				ps_sort_other.c
+				ps_sort_other.c\
+				ps_rotate.c
 
 
 FILL_STACK_SRC=		../check/src/fill_stack.c
@@ -56,7 +57,7 @@ CFLGS	=		-Wall -Werror -Wextra
 LFLGS	=		-L $(LSTACK_INT_DIR) -lstackint -L $(LFT_DIR) -lftprintf -lm
 IFLGS	=		-I $(HDR_DIR) -I $(FILL_STACK_INC) -I $(LHS_DIR) -I $(LSTACK_INT_HS_DIR)
 DFLGS	=		-MMD -MP
-OFLGS	=		-O3
+OFLGS	=		-O0 -g
 
 # ------------  RULES  ------------------------------------------------------- #
 .PHONY: all clean fclean re

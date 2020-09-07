@@ -1,6 +1,7 @@
 checker
 push_swap
-/.DS_Store
+.vscode/
+.DS_Store/
 # Prerequisites
 *.d
 
