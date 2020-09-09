@@ -59,7 +59,7 @@ ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
 
 Debug option for checker -v that can display the stack’s status after each operation
 
-### Tester
+## Tester
 
 ```
 ./test.sh -full 0 500 10

@@ -6,7 +6,7 @@
 #    By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/20 12:37:24 by aashara-          #+#    #+#              #
-#    Updated: 2020/09/07 15:56:08 by aashara-         ###   ########.fr        #
+#    Updated: 2020/09/09 14:43:19 by aashara-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ CFLGS	=		-Wall -Werror -Wextra
 LFLGS	=		-L $(LSTACK_INT_DIR) -lstackint -L $(LFT_DIR) -lftprintf -lm
 IFLGS	=		-I $(HDR_DIR) -I $(FILL_STACK_INC) -I $(LHS_DIR) -I $(LSTACK_INT_HS_DIR)
 DFLGS	=		-MMD -MP
-OFLGS	=		-O0 -g
+OFLGS	=		-O3
 
 # ------------  RULES  ------------------------------------------------------- #
 .PHONY: all clean fclean re
