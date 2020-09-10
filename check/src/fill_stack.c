@@ -6,7 +6,7 @@
 /*   By: aashara- <aashara-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 16:03:18 by aashara-          #+#    #+#             */
-/*   Updated: 2020/09/06 11:21:59 by aashara-         ###   ########.fr       */
+/*   Updated: 2020/09/10 23:11:21 by aashara-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	parse_flags(int argc, char **argv, uint8_t *flags)
 	i = 0;
 	while (++i < argc)
 	{
-		if (argv[i][0] == '-')
+		if (argv[i][0] == '-' && !ft_isdigit(argv[i][1]))
 			(*flags) |= check_flags(argv[i]);
 		else
 		{
