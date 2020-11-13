@@ -1,6 +1,9 @@
 # Push_swap
 
-Sorting algorithm using only two stacks
+![Example](https://i.ibb.co/BP3JDzP/Screen-Shot-2020-11-13-at-2-56-06-PM.png)
+
+Sorting algorithm using only two stacks.
+Look at the [subject](https://cdn.intra.42.fr/pdf/pdf/4744/push_swap.en.pdf)
 
 ## Description
 
